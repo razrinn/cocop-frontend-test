@@ -1,10 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { createUseStyles, useTheme } from "react-jss";
 
+const useStyles = createUseStyles(theme => ({
+    button: {
+        margin: theme.space.md,
+        cursor: "pointer",
+        color: theme.color.primary,
+        fontSize: theme.fontSize.md,
+        textAlign: "center",
+        fontWeigh: "bold"
+    }
+}));
 const Button = props => {
-    const {text, onClick, variant, disabled} = props;
+    const {text, onClick, variant, disabled, ...rest} = props;
+    const theme = useTheme();
+    const classes = useStyles({ theme });
     return (
-        <button onClick={onClick}>{text}</button>
+        <p className={classes.button} onClick={onClick} {...rest}>{text}</p>
     );
 };
 
