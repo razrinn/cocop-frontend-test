@@ -1,3 +1,10 @@
+## Installation Guide
+1. Clone this repository
+2. Make sure you have node installed
+3. Install the dependencies required for this project, run the command `npm install`
+4. Run the projcet with command `npm start`
+5. Open [http://localhost:3000](http://localhost:3000) to view the project
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
