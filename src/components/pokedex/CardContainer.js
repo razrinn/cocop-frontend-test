@@ -13,8 +13,6 @@ const useStyles = createUseStyles(theme => ({
     }
 }));
 
-
-
 const CardContainer = props => {
     const { data, limit, handleClick, ...rest } = props;
     const theme = useTheme();

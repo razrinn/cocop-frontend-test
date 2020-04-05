@@ -1,11 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 const Image = props => {
-    const {src, alt, ...rest} = props;
-    return (
-        <img src={src} alt={alt} {...rest} />
-    );
+    const { src, alt, ...rest } = props;
+    return <img src={src} alt={alt} {...rest} />;
 };
 
 Image.propTypes = {

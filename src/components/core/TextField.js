@@ -7,7 +7,8 @@ const useStyles = createUseStyles(theme => ({
         borderRadius: "4px",
         boxShadow: "none",
         border: `1px solid ${theme.color.black}`,
-        fontSize: theme.fontSize.md
+        fontSize: theme.fontSize.md,
+        padding: theme.space.sm
     }
 }));
 const TextField = props => {
@@ -21,7 +22,9 @@ const TextField = props => {
             value={value}
             placeholder={placeholder}
             onChange={handleChange}
-            onKeyDown={e => {if (e.keyCode === 13) handleChange(e)}}
+            onKeyDown={e => {
+                if (e.keyCode === 13) handleChange(e);
+            }}
             className={classes.root}
             {...rest}
         />

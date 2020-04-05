@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 import { createUseStyles, useTheme } from "react-jss";
-import TextField from './TextField';
-import SearchIcon from '../../asset/search.png';
-import Image from './Image';
+import TextField from "../core/TextField";
+import SearchIcon from "../../asset/search.png";
+import Image from "../core/Image";
 
 const useStyles = createUseStyles(theme => ({
     root: {
@@ -25,12 +25,16 @@ const useStyles = createUseStyles(theme => ({
 }));
 
 const SearchBox = props => {
-    const {value,handleChangeInput, handleClickSearch, ...rest} = props;
+    const { value, handleChangeInput, handleClickSearch, ...rest } = props;
     const theme = useTheme();
     const classes = useStyles({ theme });
     return (
         <div className={classes.root} {...rest}>
-            <TextField placeholder="Search pokemon" value={value} handleChange={handleChangeInput} />
+            <TextField
+                placeholder="Search pokemon"
+                value={value}
+                handleChange={handleChangeInput}
+            />
             <div className={classes.searchButton} onClick={handleClickSearch}>
                 <Image src={SearchIcon} className={classes.searchIcon} />
             </div>
