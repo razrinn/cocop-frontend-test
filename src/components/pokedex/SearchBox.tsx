@@ -4,8 +4,9 @@ import { createUseStyles, useTheme } from "react-jss";
 import TextField from "../core/TextField";
 import SearchIcon from "../../asset/search.png";
 import Image from "../core/Image";
+import { CustomTheme } from "../../type";
 
-const useStyles = createUseStyles(theme => ({
+const useStyles = createUseStyles((theme:CustomTheme) => ({
     root: {
         display: "flex",
         justifyContent: "center"
@@ -24,7 +25,7 @@ const useStyles = createUseStyles(theme => ({
     }
 }));
 
-const SearchBox = props => {
+const SearchBox = (props:any) => {
     const { value, handleChangeInput, handleClickSearch, ...rest } = props;
     const theme = useTheme();
     const classes = useStyles({ theme });

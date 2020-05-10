@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { createUseStyles, useTheme } from "react-jss";
+import { CustomTheme } from "../../type";
 
-const useStyles = createUseStyles(theme => ({
+const useStyles = createUseStyles((theme:CustomTheme) => ({
     button: {
         margin: theme.space.md,
         cursor: "pointer",
@@ -14,7 +15,7 @@ const useStyles = createUseStyles(theme => ({
         textAlign: "center",
     }
 }));
-const Button = props => {
+const Button = (props:any) => {
     const { text, onClick, disabled, ...rest } = props;
     const theme = useTheme();
     const classes = useStyles({ theme });

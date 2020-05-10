@@ -13,14 +13,14 @@ const useStyles = createUseStyles(theme => ({
     }
 }));
 
-const CardContainer = props => {
+const CardContainer = (props:any) => {
     const { data, limit, handleClick, ...rest } = props;
     const theme = useTheme();
     const classes = useStyles({ theme });
     return (
         <div className={classes.root} {...rest}>
             <div className={classes.wrapper}>
-                {data.slice(0, limit).map((pokemon, i) => (
+                {data.slice(0, limit).map((pokemon:any, i:number) => (
                     <Card
                         key={pokemon.name}
                         name={pokemon.name}

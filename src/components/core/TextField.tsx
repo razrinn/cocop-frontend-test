@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { createUseStyles, useTheme } from "react-jss";
+import { CustomTheme } from "../../type";
 
-const useStyles = createUseStyles(theme => ({
+const useStyles = createUseStyles((theme:CustomTheme) => ({
     root: {
         borderRadius: "4px",
         boxShadow: "none",
@@ -11,7 +12,7 @@ const useStyles = createUseStyles(theme => ({
         padding: theme.space.sm
     }
 }));
-const TextField = props => {
+const TextField = (props:any) => {
     const { value, handleChange, placeholder, ...rest } = props;
     const theme = useTheme();
     const classes = useStyles({ theme });

@@ -31,7 +31,7 @@ const modalStyles = {
     }
 };
 Modal.setAppElement("#root");
-const PokemonDetail = props => {
+const PokemonDetail = (props:any) => {
     const { open, handleCloseModal, pokemon, ...rest } = props;
     const theme = useTheme();
     const classes = useStyles({ theme });
@@ -58,7 +58,7 @@ const PokemonDetail = props => {
                 <p className={classes.value}>{pokemon.weight}</p>
                 <small className={classes.label}>Abilities</small>
                 <p className={classes.value}>
-                    {pokemon.abilities.map((ability, index) => (
+                    {pokemon.abilities.map((ability:any, index:number) => (
                         <span key={index}>
                             {(index ? ", " : "") + ability.ability.name}
                         </span>
@@ -66,7 +66,7 @@ const PokemonDetail = props => {
                 </p>
                 <small className={classes.label}>Stats</small>
                 <p className={classes.value}>
-                    {pokemon.stats.map((stat, index) => (
+                    {pokemon.stats.map((stat:any, index:number) => (
                         <span key={index}>
                             {(index ? ", " : "") +
                                 `${stat.stat.name} (${stat.base_stat})`}
@@ -75,7 +75,7 @@ const PokemonDetail = props => {
                 </p>
                 <small className={classes.label}>Types</small>
                 <p className={classes.value}>
-                    {pokemon.types.map((type, index) => (
+                    {pokemon.types.map((type:any, index:number) => (
                         <span key={index}>
                             {(index ? ", " : "") + type.type.name}
                         </span>

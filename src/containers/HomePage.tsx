@@ -10,8 +10,9 @@ import SearchBox from "../components/pokedex/SearchBox";
 import PokemonDetail from "../components/pokedex/PokemonDetail";
 import FilterBox from "../components/pokedex/FilterBox";
 import LoadingSpinner from "../components/core/LoadingSpinner";
+import { CustomTheme } from "../type";
 
-const useStyles = createUseStyles((theme) => ({
+const useStyles = createUseStyles((theme:CustomTheme) => ({
     root: {
         padding: theme.space.sm,
         background: theme.color.white,
@@ -58,7 +59,7 @@ const HomePage = () => {
                 // success
                 .then((response) => {
                     const rawResults = response.data.results;
-                    const finalResults = rawResults.map((res) => res.name);
+                    const finalResults = rawResults.map((res:any) => res.name);
                     return finalResults;
                 })
                 // Catch Error
@@ -71,14 +72,14 @@ const HomePage = () => {
     React.useEffect(() => {
         setIsLoading(true);
         const fetchData = async () => {
-            const result = await API.get("pokemon/?limit=10000")
+            const result:any = await API.get("pokemon/?limit=10000")
                 // success
                 .then((response) => {
                     const rawResults = response.data.results;
-                    const dataUrl = rawResults.map((res) => API.get(res.url));
+                    const dataUrl = rawResults.map((res:any) => API.get(res.url));
                     return axios.all(dataUrl).then(
                         axios.spread((...response) => {
-                            return response.map((res) => res.data);
+                            return response.map((res:any) => res.data);
                         })
                     );
                 })
@@ -101,29 +102,29 @@ const HomePage = () => {
         types: [],
         weight: 0,
     });
-    const handleChangeInput = (event) => {
-        const { value } = event.target;
+    const handleChangeInput = (event:Event) => {
+        const { value }:any = event.target;
         setSearch(value);
     };
     const handleClickSearch = () => {
         let filtered;
         if (filter === "All") {
-            filtered = pokemons.filter((poke) =>
+            filtered = pokemons.filter((poke:any) =>
                 poke.name.includes(search.toLowerCase())
             );
         } else {
             filtered = pokemons.filter(
-                (poke) =>
+                (poke:any) =>
                     poke.name.includes(search.toLowerCase()) &&
-                    poke.types.some((type) => type.type.name === filter)
+                    poke.types.some((type:any) => type.type.name === filter)
             );
         }
         setFilteredPokemons(filtered);
     };
-    const handleChangeFilter = (event) => {
+    const handleChangeFilter = (event:any) => {
         const { value } = event.target;
-        const filtered = pokemons.filter((poke) =>
-            poke.types.some((type) => type.type.name === value)
+        const filtered = pokemons.filter((poke:any) =>
+            poke.types.some((type:any) => type.type.name === value)
         );
         if (value === "All") {
             setFilteredPokemons(pokemons);
@@ -136,9 +137,9 @@ const HomePage = () => {
     const handleLoadMore = () => {
         setLimit(limit + 20);
     };
-    const handleClickCard = (index) => {
+    const handleClickCard = (index:number) => {
         setOpenModal(true);
-        const currentPokemon = filteredPokemons[index];
+        const currentPokemon:any = filteredPokemons[index];
         setSelectedPokemon({
             name: currentPokemon.name,
             image: currentPokemon.sprites.front_default,

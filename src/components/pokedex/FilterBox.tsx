@@ -2,8 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { createUseStyles, useTheme } from "react-jss";
 import DropdownField from "../core/DropdownField";
+import { CustomTheme } from "../../type";
 
-const useStyles = createUseStyles((theme) => ({
+const useStyles = createUseStyles((theme: CustomTheme) => ({
     root: {
         display: "flex",
         alignItems: "center"
@@ -13,7 +14,7 @@ const useStyles = createUseStyles((theme) => ({
         marginRight: theme.space.sm
     },
 }));
-const FilterBox = (props) => {
+const FilterBox = (props:any) => {
     const { options, value, placeholder, handleChange, ...rest } = props;
     const theme = useTheme();
     const classes = useStyles({ theme });

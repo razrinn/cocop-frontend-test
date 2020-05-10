@@ -2,8 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { createUseStyles, useTheme } from "react-jss";
 import BeatLoader from "react-spinners/BeatLoader";
+import { CustomTheme } from "../../type";
 
-const useStyles = createUseStyles((theme) => ({
+const useStyles = createUseStyles((theme:CustomTheme) => ({
     root: {
         display: "flex",
         alignItems: "center",
@@ -14,7 +15,7 @@ const useStyles = createUseStyles((theme) => ({
         fontWeight: "bold"
     }
 }));
-const LoadingSpinner = (props) => {
+const LoadingSpinner = (props:any) => {
     const { loading, size, ...rest } = props;
     const theme = useTheme();
     const classes = useStyles({ theme });

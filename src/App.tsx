@@ -1,8 +1,10 @@
 import React from "react";
 import HomePage from "./containers/HomePage";
 import { ThemeProvider } from "react-jss";
+import { CustomTheme } from "./type";
 
-const theme = {
+
+const theme: CustomTheme = {
     color: {
         primary: "#327765",
         primaryDark: "#2a6354",
@@ -24,7 +26,7 @@ const theme = {
         lg: "32px"
     }
 };
-const App = () => {
+const App:React.FC = () => {
     return (
         <ThemeProvider theme={theme}>
             <HomePage />
